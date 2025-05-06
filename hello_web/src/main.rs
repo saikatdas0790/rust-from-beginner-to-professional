@@ -1,4 +1,5 @@
 use std::{
+    fs,
     io::{Read, Write},
     net::{TcpListener, TcpStream},
 };
@@ -20,7 +21,7 @@ fn handle_client(mut stream: TcpStream) {
         "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\"message\": \"World received!\"}"
     } else {
         &if buffer.starts_with(b"GET / HTTP/1.1\r\n") {
-            let html_content = std::fs::read_to_string("./src/index.html").unwrap_or_else(|_| {
+            let html_content = fs::read_to_string("./src/index.html").unwrap_or_else(|_| {
                 "<html><body><h1>404 Not Found</h1><p>index.html not found</p></body></html>"
                     .to_string()
             });
