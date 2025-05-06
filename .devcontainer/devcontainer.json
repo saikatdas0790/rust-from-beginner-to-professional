@@ -12,6 +12,7 @@
         "GitHub.vscode-pull-request-github",
         "jnoortheen.nix-ide",
         "rust-lang.rust-analyzer",
+        "TheNuProjectContributors.vscode-nushell-lang",
         "vadimcn.vscode-lldb"
       ]
     }
